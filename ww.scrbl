@@ -24,12 +24,12 @@ World} that you should really read to understand this. Perhaps I will
 eventually integrate the necessary materials.
 
 I designed it for basic roleplaying with my young kids. They are very
-interested in the @T{Harry Potter} world and in telling stories,
-but I wanted to give them some structure. Most of the other systems
-I've looked into attempt to create something like a traditional
+interested in the @T{Harry Potter} world and in telling stories, but I
+wanted to give them some structure. Most of the other systems I've
+looked into attempts to create something like a traditional
 combat-focused RPG, which I don't think works in the
-@T{Potterverse}. I wanted something that was very light on rules
-and mechanics, but had structure to focus their creativity.
+@T{Potterverse}. I wanted something that was very light on rules and
+mechanics, but had structure to focus their creativity.
 
 @table-of-contents[]
 
@@ -57,12 +57,22 @@ receives @T{XP} in the @T{category} of the action.
 
 @section{Characters}
 
-Each @T{lead} has a fictional identity: their name, gender, what
-they look like, what house they are in, what their familiar is like,
-etc.
+Each @T{lead} has a fictional identity: their name, gender, what they
+look like, what house they are in, what their familiar is like,
+etc. Two aspects of their fiction have particular significance:
+@itemlist[
+@item{Their @DT{personality} which is a short description of how they
+act and react to situations.}
 
-Each @T{lead} has a mechanical identity that defines how it
-interacts with the rules of the game. It has the following properties:
+@item{Their @DT{motivation} which is a short description of their
+current goals as a person.}
+]
+Both of these may change over time, but they are explicitly called out
+regularly during play.
+
+
+Each @T{lead} has a mechanical identity that defines how it interacts
+with the rules of the game. It has the following properties:
 @itemlist[
 
 @item{@DT{Year} in School, which is used to compute the
@@ -199,35 +209,60 @@ back of their character sheet for consistency.
 
 @section{Advancement}
 
+@(define AdvancementXP 5)
+
 Every @T{skill} and @T{attribute} (collectively called
 @DT{categories}) has experience (or @DT{XP}) points tracked for
 it. Every time a roll for a category fails, then the player marks an
 additional XP for it. This is called @DT{practice}.
 
-In between semesters, if a character's skill's XP minus the current
-modifier equals @bold{5}, then they may undergo @DT{advancement} and
-the modifier increases. A modifier cannot increase more than once a
-year. Modifiers may never increase beyond @bold{+3}, except the
-initial @T{advantage}d skill.
+In between semesters, if a character's skill's XP equals
+@bold{@(number->string AdvancementXP)}, then they may undergo
+@DT{advancement} and the modifier increases. A modifier cannot
+increase more than once a year. Modifiers may never increase beyond
+@bold{+3}, except the initial @T{advantage}d skill.
 
 For example, @T{Harry} fails a @T{History of Magic} at @bold{+1} roll
 attempting to do research on his own regarding the @T{Tri-wizard
 Tournament} and is disadvantaged in the game. He increments his XP on
-this skill and finally reaches @bold{6 = 5 + 1} XP, so he may advance
-to @bold{+2} in the subject.
+this skill and finally reaches @bold{@(number->string AdvancementXP)}
+XP, so he may advance to @bold{+2} in the subject at the end of the
+semester.
 
 This system encourages growth specifically in the areas where
 characters are not succeeding and rewards them with more options.
-
-(Alternatively, you could pool XP and select things to improve at the
-end of each semester, but I think the system above has more gradual
-growth.)
 
 In the fiction, you can use modifier values as the student's scores on
 tests, with @bold{+2} as passing @T{O.W.L.} with good marks and
 @bold{+3} as achieving @T{N.E.W.T.} status. Other than this, there is
 no purpose to explicitly representing tests, because it would be
 boring to have a student fail out of @T{Hogwarts}.
+
+@subsection{End of Session}
+
+In addition to @T{practice}, players receive @T{XP} for their
+characters through roleplaying and story progression. At the end of
+each session, review the following questions with each player:
+@itemlist[
+
+@item{Did your character fulfill their @T{motivation}? If so, take
+note and come up with a new motivation at the next appropriate
+moment.}
+
+@item{Did your character act out their @T{personality} at least once
+this session? Furthermore, consider whether the character's
+personality has changed as a result of the story.}
+
+@item{Did the group learn something new and important about the
+world?}
+
+@item{Did the group overcome a notable monster or enemy?}
+
+@item{Did the group acquire a memorable treasure or reward?}
+
+]
+
+For each "yes", then the character may mark @T{XP} in any position.
 
 @section{Actions}
 
@@ -285,6 +320,10 @@ grace.
 @T{Harry}... @T{Slytherin}, because he is trying to be cunning and
 manipulative.
 
+@T{Harry} tries to covince @T{Neville} to help him on his
+@T{Herbology} task... @T{Slytherin} if he is being manipulative and
+@T{Hufflepuff} if he is being kind and loving.
+
 @T{Neville} runs straight at @T{Voldemort} even though he is readying
 a curse... @T{Gryffindor}, because he is demonstrating bravery.
 
@@ -293,6 +332,10 @@ misfired curse... @T{Hufflepuff}, because she is exerting hardwork and
 effort to figure it out. If instead she had investigated in the
 library for a way to fix it, perhaps it would be a @T{History of
 Magic} skill.
+
+@T{Ron} is trying to understanding what happened in this room to cause
+such a mess... @T{Ravenclaw}, beecause it is a matter of intelligence,
+reasoning, and attention to detail.
 
 @subsection{Combat}
 
@@ -390,6 +433,103 @@ don't get what you want and experience hard consequences.
 I don't like Quidditch, so I don't include it in the game
 mechanically.
 
+@subsection{Probabilities}
+
+The following tables show the probability of succeeding in various
+circumstances:
+
+@(begin
+   (define (year-modifier y)
+     (- y 4))
+   (define (probability ? m yr)
+     (/
+      (for*/sum ([x (in-range 1 (add1 6))]
+                 [y (in-range 1 (add1 6))])
+        (if (? (+ x y (year-modifier yr) m)) 1 0))
+      36))
+   (define (roll-fail x) (<= x 6))
+   (define (roll-partial x) (<= 7 x 9))
+   (define (roll-success x) (<= 10 x)))
+
+@(let ()
+   (define (modifier m)
+     (format "~a~a"
+             (if (<= 0 m) "+" "")
+             m))
+   
+   (for/list ([m (in-range -2 (add1 +4))]
+              [i (in-naturals)])
+     @tabular[#:sep @hspace[1]
+              #:style 'boxed
+              #:column-properties '(center)
+              (let ()
+                (define YEARS 7)
+                (define (probs ?)
+                  (for/list ([y (in-range 1 (add1 YEARS))])
+                    (real->decimal-string
+                     (probability ? m y))))
+                (list
+                 (cons (modifier m)
+                       (for/list ([y (in-range 1 (add1 YEARS))])
+                         (define x (bold (format "Year ~a" y)))
+                         x))
+                 (cons @bold{Fail} (probs roll-fail))
+                 (cons @bold{Partial} (probs roll-partial))
+                 (cons @bold{Complete} (probs roll-success))))]))
+
+This essentially shows that first years are extremely unlucky to
+succeed in anything: their @bold{+2} attribute only gives them a
+@emph{40%} success rate and their @T{advantage} (@bold{+1}) skill
+gives them only a @emph{28%} chance. Complete successes are even lower
+with rates of @emph{8%} and @emph{3%} respectively.
+
+On the other hand, seventh years are very capable, but not invincible,
+even in their advantage at @T{N.E.W.T.} levels.
+
+@subsection{Advancement Difficulty}
+
+@T{Advancement} through @T{practice} is increasingly more difficult,
+because it relies on repeated failure to accumulate
+@T{XP}. Essentially, the probability of advancement is a
+@link["https://en.wikipedia.org/wiki/Negative_binomial_distribution"]{negative
+binomial} random variable where @emph{r} is @(number->string
+AdvancementXP).
+
+@(define (to-advance m y)
+   (/ AdvancementXP (probability roll-fail m y)))
+
+@(define (to-advance-string m y)
+   (number->string
+    (ceiling
+     (to-advance m y))))
+
+Thus, in the first year, the expected number of spell attempts to
+advance a normal @T{skill} is @(to-advance-string 0 1). If we assume
+this happens in the first year, then it will take @(to-advance-string
++1 2) attempts to advance again in the second year and
+@(to-advance-string +2 3) attempts to finish advancing in the third
+year. These are very large number if you consider there being about
+five or six scenes per semester. The character would be practicing the
+same skill in every scene.
+
+@(define (to-advance-every-two-string m y)
+   (number->string
+    (ceiling
+     (* 1/2
+        (+ (to-advance m y)
+           (to-advance m (add1 y)))))))
+
+Alternatively, we could imagine it will take two years for each
+advancement and average the number of attempts per year. This would
+require @(to-advance-every-two-string 0 1) attempts by the end of
+second year, @(to-advance-every-two-string 1 3) attempts by fourth
+year, and @(to-advance-every-two-string 2 5) attempts by the end of
+sixth year.
+
+In summary, this essentially means that an excellent witch will only
+be a @bold{+2} by the end of fourth year, with the rest of
+@T{advancement} coming through roleplaying.
+
 @section{Gamemastering}
 
 Follow all the advice of @T{Dungeon World}. The @T{gamemaster} never
@@ -455,12 +595,188 @@ teenage angst of the books or give any real opportunity for darkness,
 because that's not my taste, so you won't see much recommendation for
 that in here.
 
+@subsection{Random Story Ideas}
+
+This section contains some tables for random story beat creation.
+
+XXX
+
+@(define Rtable void)
+
+@Rtable["Relationships"
+        (list (Rtable "Family"
+                      (list "Siblings" "Parent and Child" "Step-siblings"
+                            "Estranged distant cousins" "Identical twins"
+                            "Eccentric aunt/uncle and niece/nephew"))
+              (Rtable "Friendship"
+                      (list "Pranksters" "Friendly rivals" "New friendship"
+                            "Raised next door to one another"
+                            "A friend who always get you into trouble"
+                            "Best friends"))
+              (Rtable "Around the School"
+                      (list "Bitter enemies" "Teacher and student"
+                            "Teammates on the sports team"
+                            "Prefect and junior student"
+                            "Groundskeeper and friend"
+                            "Members of a secret organization within the school"))
+              (Rtable "Romance"
+                      (list "Former couple" "Young and in love"
+                            "One took a love potion"
+                            "Long-time crush and object of crush"
+                            "Jilted lover" "One-time fling"))
+              (Rtable "Work"
+                      (list "Fellow teachers"
+                            "Fellow teachers who are bitter enemies"
+                            "Works out in town"
+                            "Creators of joke items"
+                            "Fellow prefects"
+                            "Seller of magic items and buyer"))
+              (Rtable "Crime"
+                      (list "Sells contraband magical items"
+                            "Teaches dark and unspeakable magic in private"
+                            "Bully and victim"
+                            "Small time thieves"
+                            "Secret servants of the Dark Lord"
+                            "School bully and crony")))]
+
+@Rtable["Needs"
+        (list (Rtable "to get out"
+                      (list "of this class I'm failing"
+                            "of this relationship with significant other"
+                            "of my family name"
+                            "of this curse I'm under"
+                            "of this nickname"
+                            "of the favor I owe"))
+              (Rtable "to get even"
+                      (list "with my tormentor"
+                            "with the teacher who failed me"
+                            "with the person who swindled me"
+                            "with the school hero"
+                            "with the rival sports team"
+                            "with the school"))
+              (Rtable "to prepare"
+                      (list "for my big final test"
+                            "for the Christmas ball"
+                            "to get a significant other"
+                            "for my family to visit"
+                            "for tryouts for the sports team"
+                            "a secret potion"))
+              (Rtable "to get respect from"
+                      (list "my parents"
+                            "my rival"
+                            "the headmaster of the school"
+                            "the entire school"
+                            "the sports team who shunned me"
+                            "the Dark Lord"))
+              (Rtable "to get the truth about"
+                      (list "how my parents died"
+                            "the week I have no memory of"
+                            "the secret chamber I found in the school"
+                            "my brother's disappearance"
+                            "the ghostly voices I hear at night"
+                            "who the newest teacher truly is"))
+              (Rtable "to get rich"
+                      (list "by any means necessary"
+                            "through theft"
+                            "to help my family"
+                            "through fame"
+                            "through selling contraband"
+                            "through betting on card games")))]
+
+@Rtable["Location"
+        (list (Rtable "the school grounds"
+                      (list "the groundskeeper's house"
+                            "the malevolent, animated tree"
+                            "the sports field"
+                            "under the bleachers at the sports field"
+                            "the haunted forest"
+                            "the lake"))
+              (Rtable "classrooms"
+                      (list "History of Magic class"
+                            "Potions class"
+                            "Charms class"
+                            "Transfiguration class"
+                            "Divination class"
+                            "an empty and abandoned classroom"))
+              (Rtable "common area"
+                      (list "the owlery"
+                            "the great hall"
+                            "main entryway"
+                            "on a moving staircase"
+                            "a House common room"
+                            "the dungeons"))
+              (Rtable "secret locations"
+                      (list "a hidden chamber"
+                            "the room accessible only to those who need it most"
+                            "secret exits to the village"
+                            "the third floor"
+                            "the headmaster's office"
+                            "the haunted house in the village"))
+              (Rtable "the village"
+                      (list "the sweetshop" "the inn" "the train station"
+                            "the joke shop" "outside the haunted house"
+                            "the teashop"))
+              (Rtable "the back alley of London"
+                      (list "the magical bookstore" "the Wizarding bank"
+                            "the local inn" "the wand store" "the robe store"
+                            "the dark alley behind the main thoroughfare")))]
+
+@Rtable["Objects"
+        (list (Rtable "illegal"
+                      (list "a dark magic tattoo"
+                            "a forbidden book of sorcery"
+                            "a severed human hand bless with dark magic"
+                            "a basilisk's fang"
+                            "a mask from your father, servant of the Dark Lord"
+                            "a trunk containing an evil magical creature"))
+              (Rtable "contraband"
+                      (list "a watch which turns back time"
+                            "joke candy"
+                            "illegal fireworks"
+                            "a magical pool of water capable of seeing past memories"
+                            "stinkbombs"
+                            "an exploding wand"))
+              (Rtable "transportation"
+                      (list "the best of the best broomstick"
+                            "a flying car"
+                            "a flying carpet"
+                            "a handful of teleportation powder"
+                            "a cheap hand-me-down broomstick"
+                            "an old shoe which can teleport you to destinations unknown"))
+              (Rtable "potions"
+                      (list "a powerful love potion"
+                            "a a confusing concoction"
+                            "Liquid luck"
+                            "polymorphing potion"
+                            "a truth serum"
+                            "Draught of Death, to make the user appear dead"))
+              (Rtable "rumors"
+                      (list "the most recent teacher to arrive at the school is actually a vampire"
+                            "there is a portal deep within the bowels of the school which can send you back in time"
+                            "two of the most popular kids in the school are servants of the Dark Lord"
+                            "school is going to be cancelled next year due to threats to the school"
+                            "the school's hero is losing his mind and could snap at any moment"
+                            "the school was built over a grave site, and the ghosts are angry"))
+              (Rtable "sentimental"
+                      (list "your grandfather's wand"
+                            "your older sister's cat"
+                            "a very old magical book which has been in the family for years"
+                            "a ring of invisibility from your mother"
+                            "your father's broom from when he was captain of the sports team"
+                            "your first wand"))
+              )]
+
 @section{Acknowledgments}
 
 I am indebted to the following projects in this work:
 @itemlist[
+
 @item{@link["https://docs.google.com/document/d/1avqZm0uZXEVLLki7OfvveyxEF4awjWSQ_62aABPO3Ko/mobilebasic?pli=1"]{Houses and Wands by neonchameleon} (extreme debt)}
+
+@item{@link["http://fiascoplaysets.com/home/toil-and-trouble"]{Toil and Trouble} playset for @link["http://bullypulpitgames.com/games/fiasco/"]{Fiasco}}
+     
 @item{@link["http://harrypotter.wikia.com/"]{Harry Potter wikia}}
+
 ]
 
 This document refers to the following characters and terms from
