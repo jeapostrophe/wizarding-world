@@ -3,6 +3,8 @@ wizarding-world - A "Powered by the Apocalypse"-style tabletop RPG based on the 
 Read it [here](http://htmlpreview.github.io/?https://github.com/jeapostrophe/wizarding-world/blob/master/dist/index.html).
 
 TODO
+- Add goals (for alignments and bonds)
+- Add post-session advancement
 - Make a character sheet
 - Make a cheat sheet for printing
 - https://docs.google.com/file/d/0B_QEws739Q9Ba01fZVhNd1Z5WW8/edit?pli=1
