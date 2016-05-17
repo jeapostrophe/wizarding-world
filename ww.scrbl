@@ -11,7 +11,7 @@
 @title{Wizarding World}
 @author{@author+email["Jay McCarthy" "jay.mccarthy@gmail.com"]}
 
-@DT{Wizarding World} is a tabletop roleplaying game that is
+@DT{Wizarding World} is a tabletop role-playing game that is
 mechanically based on the
 @link["https://en.wikipedia.org/wiki/Powered_by_the_Apocalypse"]{Powered
 by the Apocalypse} system and thematically based on the fictional
@@ -23,7 +23,7 @@ heavily from materials like @link["http://dungeon-world.com"]{Dungeon
 World} that you should really read to understand this. Perhaps I will
 eventually integrate the necessary materials.
 
-I designed it for basic roleplaying with my young kids. They are very
+I designed it for basic role-playing with my young kids. They are very
 interested in the @T{Harry Potter} world and in telling stories, but I
 wanted to give them some structure. Most of the other systems I've
 looked into attempts to create something like a traditional
@@ -161,7 +161,7 @@ period was like when they learned about it.
 
 If the characters are making plans, then it is best to resolve these
 scenes before getting into the action. For example, suppose @T{Ron}
-and @T{Hermione} are trying to ride a gryphon as part of their plan,
+and @T{Hermione} are trying to ride a griffon as part of their plan,
 rather than interrupting that action later when they are wandering in
 the woods, resolve a class sequence early. This gives an opportunity
 for @T{practice} and, thus, @T{advancement}.
@@ -213,7 +213,7 @@ For example, @T{Ron} causes a spell to cause @T{Malfoy} to burp
 toads. We think, "Burp Toads from Mouth". Then, revise it to, "Toad
 Mouth". We come up with "Toadox Moutharum".
 
-Each player may want to write down their own personal spellbook on the
+Each player may want to write down their own personal spell book on the
 back of their character sheet for consistency.
 
 @section{Advancement}
@@ -250,7 +250,7 @@ boring to have a student fail out of @T{Hogwarts}.
 @subsection{End of Session}
 
 In addition to @T{practice}, players receive @T{XP} for their
-characters through roleplaying and story progression. At the end of
+characters through role-playing and story progression. At the end of
 each session, review the following questions with each player:
 @itemlist[
 
@@ -276,7 +276,7 @@ For each "yes", then the character may mark @T{XP} in any position.
 @section{Actions}
 
 All actions use the @T{basic mechanic}. However, depending on the
-particular action the modifier is computed differently. Simiarly,
+particular action the modifier is computed differently. Similarly,
 success and failure bring different @T{consequences}.
 
 Each action's modifier is computed by adding the @T{disadvantage}
@@ -289,7 +289,7 @@ young students are less capable of physical activities, are less
 convincing and astute socially, and so on. Thus, as they grow up, they
 become more capable generally. Second, for magical activities, the
 year modifier encodes the idea that @T{Hogwarts} is taking kids
-that have no skills in wizardy and turning them into proficient
+that have no skills in wizardry and turning them into proficient
 wizards. 
 
 @tabular[#:sep @hspace[1]
@@ -326,7 +326,7 @@ grace.
 @T{Harry}... @T{Slytherin}, because he is trying to be cunning and
 manipulative.
 
-@T{Harry} tries to covince @T{Neville} to help him on his
+@T{Harry} tries to convince @T{Neville} to help him on his
 @T{Herbology} task... @T{Slytherin} if he is being manipulative and
 @T{Hufflepuff} if he is being kind and loving.
 
@@ -334,13 +334,13 @@ manipulative.
 a curse... @T{Gryffindor}, because he is demonstrating bravery.
 
 @T{Hermione} works on fixing the magical artifact damaged by a
-misfired curse... @T{Hufflepuff}, because she is exerting hardwork and
+misfired curse... @T{Hufflepuff}, because she is exerting hard work and
 effort to figure it out. If instead she had investigated in the
 library for a way to fix it, perhaps it would be a @T{History of
 Magic} skill.
 
 @T{Ron} is trying to understanding what happened in this room to cause
-such a mess... @T{Ravenclaw}, beecause it is a matter of intelligence,
+such a mess... @T{Ravenclaw}, because it is a matter of intelligence,
 reasoning, and attention to detail.
 
 @subsection{Combat}
@@ -544,8 +544,8 @@ sixth year.
 
 In summary, this essentially means that an excellent witch will only
 be a @bold{+2} by the end of fourth year in most subjects, except
-their speciality which may be @bold{+3}, with the rest of
-@T{advancement} coming through roleplaying.
+their specialty which may be @bold{+3}, with the rest of
+@T{advancement} coming through role-playing.
 
 @section{Gamemastering}
 
