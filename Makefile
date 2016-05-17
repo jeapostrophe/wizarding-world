@@ -1,4 +1,7 @@
-all: dist/index.html
+all: dist/push
+
+dist/push: dist/index.html
+	cd dist && (git commit -m "Update" . ; git push origin gh-pages)
 
 dist/gm-reference.html: resources.rkt
 	racket -t resources.rkt -- dist
