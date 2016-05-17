@@ -28,8 +28,9 @@ interested in the @T{Harry Potter} world and in telling stories, but I
 wanted to give them some structure. Most of the other systems I've
 looked into attempts to create something like a traditional
 combat-focused RPG, which I don't think works in the
-@T{Potterverse}. I wanted something that was very light on rules and
-mechanics, but had structure to focus their creativity.
+@T{Potterverse}. Or, they try to create something simulation-heavy,
+which isn't right for my kids. I wanted something that was very light
+on rules and mechanics, but had structure to focus their creativity.
 
 @table-of-contents[]
 
@@ -49,20 +50,20 @@ a modifier number to the result based on the @T{category} of the
 action.
 @itemlist[
 
-@item{If both are @emph{6} or the modified result is @dresult{10 or
-more}, then the action is a @DT{success}.}
+@item{If @dresult{both are 6} or the modified result is @dresult{10 or
+more}, then the action is a @DT{success}. The player gets what they
+want and positive consequences are narrated by the @T{gamemaster}.}
 
-@item{If both are @emph{3} or the modified result is @dresult{7, 8, or
-9}, then the action is a @DT{partial} success, where the main result
-is accomplished but there are some @T{consequence}, whose category is
-determined by the @T{player}..}
+@item{If @dresult{both are 3} or the modified result is @dresult{7, 8,
+or 9}, then the action is a @DT{partial} success, where the main
+result is accomplished but there are some negative @T{consequence},
+collaboratively determined by the @T{gamemaster} and @T{player}.}
 
-@item{If both are @emph{1} or the modified result is @dresult{6 or
+@item{If @dresult{both are 1} or the modified result is @dresult{6 or
 less}, then the action is a @DT{failure} and the @T{gamemaster}
-chooses and narrates the consequences. Whenever a roll results in
-@T{failure}, the @T{lead} receives @T{XP} in the @T{category} of the
-action.}
-]
+chooses and narrates the negative @T{consequences}. Whenever a roll
+results in @T{failure}, the @T{lead} receives @T{XP} in the
+@T{category} of the action.}  ]
 
 @section{Characters}
 
@@ -127,18 +128,18 @@ provides a relative @bold{+1} to any @T{skill}'s modifier. For
 instance, @T{Neville} has an advantage in @T{Herbology}, while
 @T{Harry} is advantaged in @T{Defense Against the Dark Arts}.
 
-Set each @T{skill} modifier at @bold{0}.
+Set each other @T{skill} modifier at @bold{0}.
 
 @section{Skills}
 
 Characters have a different modifier for every class they take at
 @T{Hogwarts}. These are called @DT{skills} and are:
 @itemlist[
-@item{@DT{Care of Magical Creatures}: Knowledge of non-dark magical creatures (third year)}
+@item{@DT{Care of Magical Creatures}: Knowledge of non-dark magical creatures}
 @item{@DT{Charms}: Alters what an object or creature does}
 @item{@DT{Defense Against the Dark Arts}: Defense, offense, and dark creature knowledge}
-@item{@DT{Divination}: Minor predictions (astronomy) until third year}
-@item{@DT{Flying}: Not used for rudimentary flight}
+@item{@DT{Divination}: Minor predictions (astronomy) until third year, major predictions after}
+@item{@DT{Flying}: Not used for rudimentary flight and not a class after first year}
 @item{@DT{Herbology}: Care for and magical use of plants}
 @item{@DT{History of Magic}: Lore and library research}
 @item{@DT{Potions}: Brewing of magical potions}
@@ -146,8 +147,8 @@ Characters have a different modifier for every class they take at
 ]
 
 Other classes mentioned in the books are not skills and should be
-considered attribute actions or their closest class, if they are ever
-arise in play. For example, @T{Muggle Studies}, @T{Apparation},
+considered attribute actions or as their closest class, if they are
+ever arise in play. For example, @T{Muggle Studies}, @T{Apparation},
 @T{Arithmancy}, @T{Occlumency}, @T{Legilimency}, @T{Ancient Runes},
 etc.
 
@@ -166,19 +167,20 @@ rather than interrupting that action later when they are wandering in
 the woods, resolve a class sequence early. This gives an opportunity
 for @T{practice} and, thus, @T{advancement}.
 
-If the @T{gamemaster} knows a skill will come in useful, they can put
-the characters into a scene as well. The players can also just ask for
-a scene from a particular class, which is a way of communicating to
-the @T{gamemaster} that they would like the solution to involve that
-class.
+If the @T{gamemaster} knows a skill will come in handy later, they can
+put the characters into a scene as well. The players can also just ask
+for a scene from a particular class, which is a way of communicating
+to the @T{gamemaster} that they would like the solution to involve
+that class.
 
 @subsection{Spell Names}
 
 Whenever you cast a spell, wave your pencil around like it is a wand
 and say something that sounds Latin. Here's a good way to generate
-fake Latin: write down the effect in English, remove everything except
-nouns and adjectives (and sometimes verbs), then replace word endings
-with Latin ones:
+fake Latin: think of a description of the effect in English, remove
+everything except nouns and adjectives (and sometimes verbs), then add
+Latin-sounding word endings, perhaps replacing old endings in the
+process:
 
 @tabular[#:sep @hspace[1]
          #:style 'boxed
@@ -209,9 +211,14 @@ with Latin ones:
                          #:when (= i (modulo ei N)))
                 e))))]
 
-For example, @T{Ron} causes a spell to cause @T{Malfoy} to burp
-toads. We think, "Burp Toads from Mouth". Then, revise it to, "Toad
-Mouth". We come up with "Toadox Moutharum".
+@T{Ron} casts a spell to cause @T{Malfoy} to burp toads. We
+think, "Burp Toads from Mouth". Then, revise it to, "Toad Mouth". We
+come up with "Toadox Moutharum".
+
+@T{Harry} protects himself with a charm that moves the air around him
+into a think fog to stop a piece of rock flying at him. We
+think, "Turn Air into Shield". Then, revise it to, "Air Shield". We
+come up with "Airae Shieles".
 
 Each player may want to write down their own personal spell book on the
 back of their character sheet for consistency.
@@ -232,7 +239,7 @@ increase more than once a year. Modifiers may never increase beyond
 @bold{+3}, except the initial @T{advantage}d skill.
 
 For example, @T{Harry} fails a @T{History of Magic} at @bold{+1} roll
-attempting to do research on his own regarding the @T{Tri-wizard
+attempting to do research on his own regarding the @T{Triwizard
 Tournament} and is disadvantaged in the game. He increments his XP on
 this skill and finally reaches @bold{@(number->string AdvancementXP)}
 XP, so he may advance to @bold{+2} in the subject at the end of the
@@ -271,7 +278,8 @@ world?}
 
 ]
 
-For each "yes", then the character may mark @T{XP} in any position.
+For each "yes", then the character may mark @T{XP} in any
+@T{category}.
 
 @section{Actions}
 
@@ -284,13 +292,12 @@ modifier (when appropriate), the @T{year modifier}, and either the
 @T{attribute} or @T{skill} modifier (depending on whether the
 action is a skill or general action).
 
-The @DT{year modifier} represents two ideas mechanically. First,
-young students are less capable of physical activities, are less
-convincing and astute socially, and so on. Thus, as they grow up, they
-become more capable generally. Second, for magical activities, the
-year modifier encodes the idea that @T{Hogwarts} is taking kids
-that have no skills in wizardry and turning them into proficient
-wizards. 
+The @DT{year modifier} represents two ideas mechanically. First, young
+students are less capable of physical activities, are less convincing,
+astute socially, and so on. Thus, as they grow up, they become more
+capable generally. Second, for magical activities, the year modifier
+encodes the idea that @T{Hogwarts} is taking kids that have no skills
+in wizardry and turning them into proficient wizards.
 
 @tabular[#:sep @hspace[1]
          #:column-properties '(right center)
@@ -305,16 +312,24 @@ It is generally obvious when and which @T{skill} is being used. Some
 subtlety comes from skills like @T{History of Magic} which is not
 explicitly a matter of casting spells with certain effects. I treat
 @T{History of Magic} as a stand-in for research in the library and
-remembering lore.
+remembering lore. Another complexity is whether knowledge of a
+particular magic creature comes from @T{Care of Magical
+Creatures} (for nice creatures, generally) or @T{Defense Against the
+Dark Arts} (for monsters, generally). In some circumstances, other
+skills may be appropriate, like a @T{History of Magic} for a creature
+of legend or @T{Divination} for centaurs. The most complex example,
+however, is when a spell is a @T{Charm} versus a
+@T{Transfiguration}. One changes what something @emph{does} and the
+other changes what something @emph{is}.
 
-It is also generally obvious when an @T{attribute} applies, but less
-clear which should apply. Most of my RPG experience comes from games
-like Dungeons and Dragons and @T{Dungeon World}, so I try understand
-the @T{attributes} relative to those games. I treat @T{Gryffindor} as
-a combination of @bold{STR}, @bold{WIS} and a little @bold{CON};
-@T{Hufflepuff} as @bold{WIS}, @bold{CON}, and a little @bold{CHA};
-@T{Ravenclaw} as @bold{INT} and @bold{DEX}; and, @T{Slytherin} as
-@bold{DEX}, @bold{INT}, and a little @bold{CHA}.
+It is also generally obvious when some @T{attribute} applies, but less
+clear which one should apply. Most of my RPG experience comes from
+games like Dungeons and Dragons and @T{Dungeon World}, so I try
+understand the @T{attributes} relative to those games. I treat
+@T{Gryffindor} as a combination of @bold{STR}, @bold{WIS} and a little
+@bold{CON}; @T{Hufflepuff} as @bold{WIS}, @bold{CON}, and a little
+@bold{CHA}; @T{Ravenclaw} as @bold{INT} and @bold{DEX}; and,
+@T{Slytherin} as @bold{DEX}, @bold{INT}, and a little @bold{CHA}.
 
 @subsection{Attribute Examples}
 
@@ -380,8 +395,10 @@ fiction. The story is most interesting when the @T{leads} don't get
 their way exactly. So, on a success, the @T{gamemaster} should look
 for a way to give the player a hard choice of two good things out of
 three possibilities, while on a partial success, they can only choose
-one. For example, if @T{Snape} is attempting to de-curse @T{Harry}'s
-broom without being noticed, his goal is to (a) cast the spell
+one.
+
+For example, if @T{Snape} is attempting to de-curse @T{Harry}'s broom
+without being noticed, his goal is to (a) cast the spell
 effectively, (b) not be noticed, and (c) not have a counter-curse put
 on him. In the actual story, he chooses to not get result (b), as
 @T{Hermione} notices him.
@@ -427,10 +444,10 @@ Here are some ideas for consequences:
 ]
 
 There are no strict rules for what are consequences. The only
-principle is that: on a @dresult{10+}, you get what you want with only
-soft consequences@";" on a @dresult{7-9}, you get most of what you
-want with maybe a hard consequence@";" and on a @dresult{6-}, you
-don't get what you want and experience hard consequences.
+principle is that: on a @T{success}, you get what you want with only
+soft consequences@";" on a @T{partial}, you get most of what you want
+with maybe a hard consequence@";" and on a @T{failure}, you don't get
+what you want and experience hard consequences.
 
 @section{Miscellaneous}
 
@@ -490,17 +507,17 @@ circumstances:
    (string-append (number->string (round (* 100 (probability
 ? m y)))) "%"))
 
-This essentially shows that first years are extremely unlucky to
+This essentially shows that first years are extremely unlikely to
 succeed in anything: their @bold{+2} attribute only gives them a
 @(emph (probability-percentage-str roll-partial 2 1)) partial success
-rate and their @T{advantage} (@bold{+1}) skill gives them only
-a @(emph (probability-percentage-str roll-partial 1 1))
-chance. Complete successes are even lower with rates of
+rate and their @T{advantage} (@bold{+1}) skill gives them only a
+@(emph (probability-percentage-str roll-partial 1 1)) chance. Complete
+successes are even lower with rates of
 @(emph (probability-percentage-str roll-success 2 1)) and
 @(emph (probability-percentage-str roll-success 1 1)) respectively.
 
 On the other hand, seventh years are very capable, but not invincible,
-even in their advantage at @T{N.E.W.T.} levels.
+even in their @T{advantage} at @T{N.E.W.T.} levels.
 
 @subsection{Advancement Difficulty}
 
@@ -524,7 +541,7 @@ advance a normal @T{skill} is @(to-advance-string 0 1). If we assume
 this happens in the first year, then it will take @(to-advance-string
 +1 2) attempts to advance again in the second year and
 @(to-advance-string +2 3) attempts to finish advancing in the third
-year. These are very large number if you consider there being about
+year. These are very large numbers if you consider there being about
 five or six scenes per semester. The character would be practicing the
 same skill in every scene.
 
@@ -568,34 +585,41 @@ before doing it.
 
 @subsection{Story Advice}
 
-Your style and taste may vary, of course. With my kids, I took the
+Your style and taste may vary, of course. With my kids, I take the
 kids from first-year through seventh-year, stop, and then start again
 as new students as if the universe reset. I do not use any characters
 from the actual @T{Potterverse}, because I want things to be as
 mysterious and open as the books were. I try not to use stand-ins for
 them either, so there is no character that is like @T{The Boy Who
-Lived} or @T{He Who Must Not Be Named}. Nevertheless, there are
-still dangerous people and mysterious artifacts around @T{Hogwarts}
-that attract the attention of dark wizards.
+Lived} or @T{He Who Must Not Be Named}. Nevertheless, there are still
+dangerous people and mysterious artifacts around @T{Hogwarts} that
+attract the attention of dark wizards.
 
 I use the @T{Front} system of @T{Dungeon World} in a highly
 structured way based on my understanding of the books:
 @itemlist[
 
-@item{There is a single @DT{Story Front} for all seven years that
-each other @T{Front} links into. This defines the goals of the "big
-bad" of the whole story. I don't plan it in detail before, but try to
-keep in consistent.}
+@item{There is a single @DT{Story Front} for all seven years that each
+other @T{Front} links into. This defines the goals of the "big bad" of
+the whole story. I don't plan it in detail before, but try to keep in
+consistent. For example, @T{Voldemort} is trying to come back and take
+over.}
 
-@item{Each year has a @DT{Year Front} that defines the threat of
-that year as it relates to the @T{Story Front}.}
+@item{Each year has a @DT{Year Front} that defines the threat of that
+year as it relates to the @T{Story Front}. For example, @T{Quirrell}
+is trying to get the @T{Philosopher's Stone}, the @T{Chamber of
+Secrets} has been opened, and @T{Voldemort} tries to get @T{Harry} to
+leave @T{Hogwarts} are each @T{Year Front}s.}
 
-@item{Years three, four, and five has a @DT{Middle Front}
-that defines some large moment that is more connected with one another
-than all other years.}
+@item{Years three, four, and five has a @DT{Middle Front} that defines
+some large moment that is more connected with one another than all
+other years. In the books, this is the @T{Sirius Black} where
+@T{Harry} learns of a family member and then loses him.}
 
-@item{Each year has a @DT{Mystery Front} that defines some
-unrelated mystery of that particular year.}
+@item{Each year has a @DT{Mystery Front} that defines some unrelated
+mystery of that particular year. For instance, the @T{Triwizard
+Tournament} and @T{Lupin}'s identity are examples of @T{Mystery
+Front}s.}
 
 ]
 
@@ -655,8 +679,9 @@ Lived}, @T{Hufflepuff}, @T{Slytherin}, @T{Herbology}, @DT{He Who Must
 Not Be Named}, @DT{Hermione}, @T{History of Magic}, @DT{Mrs Norris},
 @DT{Harry Potter}, @DT{Muggle Studies}, @DT{Muggle}, @DT{Apparation},
 @DT{Legilimency}, @DT{Ancient Runes}, @DT{Arithmancy},
-@DT{Occlumency}, @DT{O.W.L.}, @DT{N.E.W.T.}, @DT{Tri-wizard
-Tournament}.}
+@DT{Occlumency}, @DT{O.W.L.}, @DT{N.E.W.T.}, @DT{Triwizard
+Tournament}, @DT{Quirrell}, @DT{Lupin}, @DT{Sirius Black}, @DT{Chamber
+of Secrets}, @DT{Philosopher's Stone}.}
 
 ]
 
