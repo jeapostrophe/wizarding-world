@@ -7,4 +7,4 @@ TODO
 - Make a PC cheat sheet
 file:///Users/jay/Dev/scm/plt/racket/doc/draw/post-script-dc_.html?q=pdf
 - Make a GM reference
-- Snake eyes always fails
+- Proof read

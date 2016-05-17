@@ -46,14 +46,23 @@ the action could be done by any normal person in the circumstances,
 then no dice are needed. However, if some special circumstance or
 special ability is required, the @T{player} rolls @dice[2 6] and adds
 a modifier number to the result based on the @T{category} of the
-action. If the modified result is @dresult{10 or more}, then the
-action is a success. If the result is @dresult{7, 8, or 9}, then the
-action is a partial success, where the main result is accomplished but
-there are some @T{consequence}, whose category is determined by the
-@T{player}. If the result is a @dresult{6 or less}, then the action is
-a @DT{failure} and the @T{gamemaster} chooses and narrates the
-consequences. Whenever a roll results in @T{failure}, the @T{lead}
-receives @T{XP} in the @T{category} of the action.
+action.
+@itemlist[
+
+@item{If both are @emph{6} or the modified result is @dresult{10 or
+more}, then the action is a @DT{success}.}
+
+@item{If both are @emph{3} or the modified result is @dresult{7, 8, or
+9}, then the action is a @DT{partial} success, where the main result
+is accomplished but there are some @T{consequence}, whose category is
+determined by the @T{player}..}
+
+@item{If both are @emph{1} or the modified result is @dresult{6 or
+less}, then the action is a @DT{failure} and the @T{gamemaster}
+chooses and narrates the consequences. Whenever a roll results in
+@T{failure}, the @T{lead} receives @T{XP} in the @T{category} of the
+action.}
+]
 
 @section{Characters}
 
@@ -286,14 +295,11 @@ wizards.
 @tabular[#:sep @hspace[1]
          #:column-properties '(right center)
          #:row-properties '(bottom-border ())
-         (list (list @bold{Year} @bold{Modifier})
-               (list "First" @bold{-3})
-               (list "Second" @bold{-2})
-               (list "Third" @bold{-1})
-               (list "Fourth" @bold{0})
-               (list "Fifth" @bold{+1})
-               (list "Sixth" @bold{+2})
-               (list "Seventh" @bold{+3}))]
+         (cons (list @bold{Year} @bold{Modifier})
+               (for/list ([i (in-naturals 1)]
+                          [ys (in-list '("First" "Second" "Third"
+                                         "Fourth" "Fifth" "Sixth" "Seventh"))])
+                 (list ys (bold (modifier (year-modifier i))))))]
 
 It is generally obvious when and which @T{skill} is being used. Some
 subtlety comes from skills like @T{History of Magic} which is not
@@ -440,23 +446,26 @@ circumstances:
 
 @(begin
    (define (year-modifier y)
-     (- y 4))
+     (vector-ref (vector -3 -2 -1 0 +1 +1 +2) (sub1 y)))
    (define (probability ? m yr)
      (/
       (for*/sum ([x (in-range 1 (add1 6))]
                  [y (in-range 1 (add1 6))])
-        (if (? (+ x y (year-modifier yr) m)) 1 0))
+        (if (? (= x y 1) (= x y 3) (= x y 6) (+ x y (year-modifier yr) m))
+            1 0))
       36))
-   (define (roll-fail x) (<= x 6))
-   (define (roll-partial x) (<= 7 x 9))
-   (define (roll-success x) (<= 10 x)))
-
-@(let ()
+   (define (roll-fail f p s x)
+     (and (not p) (not s) (or f (<= x 6))))
+   (define (roll-partial f p s x)
+     (and (not f) (not s) (or p (<= 7 x 9))))
+   (define (roll-success f p s x)
+     (and (not f) (not p) (or s (<= 10 x))))
    (define (modifier m)
      (format "~a~a"
              (if (<= 0 m) "+" "")
-             m))
-   
+             m)))
+
+@(let ()
    (for/list ([m (in-range -2 (add1 +4))]
               [i (in-naturals)])
      @tabular[#:sep @hspace[1]
@@ -477,11 +486,18 @@ circumstances:
                  (cons @bold{Partial} (probs roll-partial))
                  (cons @bold{Complete} (probs roll-success))))]))
 
+@(define (probability-percentage-str ? m y)
+   (string-append (number->string (round (* 100 (probability
+? m y)))) "%"))
+
 This essentially shows that first years are extremely unlucky to
 succeed in anything: their @bold{+2} attribute only gives them a
-@emph{40%} success rate and their @T{advantage} (@bold{+1}) skill
-gives them only a @emph{28%} chance. Complete successes are even lower
-with rates of @emph{8%} and @emph{3%} respectively.
+@(emph (probability-percentage-str roll-partial 2 1)) partial success
+rate and their @T{advantage} (@bold{+1}) skill gives them only
+a @(emph (probability-percentage-str roll-partial 1 1))
+chance. Complete successes are even lower with rates of
+@(emph (probability-percentage-str roll-success 2 1)) and
+@(emph (probability-percentage-str roll-success 1 1)) respectively.
 
 On the other hand, seventh years are very capable, but not invincible,
 even in their advantage at @T{N.E.W.T.} levels.
@@ -527,7 +543,8 @@ year, and @(to-advance-every-two-string 2 5) attempts by the end of
 sixth year.
 
 In summary, this essentially means that an excellent witch will only
-be a @bold{+2} by the end of fourth year, with the rest of
+be a @bold{+2} by the end of fourth year in most subjects, except
+their speciality which may be @bold{+3}, with the rest of
 @T{advancement} coming through roleplaying.
 
 @section{Gamemastering}
