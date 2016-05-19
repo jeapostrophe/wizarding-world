@@ -139,7 +139,6 @@ Characters have a different modifier for every class they take at
 @item{@DT{Charms}: Alters what an object or creature does}
 @item{@DT{Defense Against the Dark Arts}: Defense, offense, and dark creature knowledge}
 @item{@DT{Divination}: Minor predictions (astronomy) until third year, major predictions after}
-@item{@DT{Flying}: Not used for rudimentary flight and not a class after first year}
 @item{@DT{Herbology}: Care for and magical use of plants}
 @item{@DT{History of Magic}: Lore and library research}
 @item{@DT{Potions}: Brewing of magical potions}
@@ -641,8 +640,7 @@ that in here.
 The following resources are available for speedy play:
 @itemlist[
 
-@item{@link["char-sheets.pdf"]{Character sheets} as PDF.}
-@item{@link["player-reference.pdf"]{Player reference card} as PDF.}
+@item{@link["char.pdf"]{Character sheet} as PDF.}
 @item{@link["gm-reference.html"]{GM reference} as HTML (works
 offline).}
 

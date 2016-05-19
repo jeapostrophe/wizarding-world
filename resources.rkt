@@ -278,8 +278,10 @@
       (display (f)))))
 
 (define (generate! dist-p)
+  #;
   (generate-pdf! (build-path dist-p "char-sheets.pdf")
                  char-sheets)
+  #;
   (generate-pdf! (build-path dist-p "player-reference.pdf")
                  player-reference)
   (generate-html! (build-path dist-p "gm-reference.html")
