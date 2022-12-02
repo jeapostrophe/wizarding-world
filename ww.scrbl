@@ -442,7 +442,7 @@ Here are some ideas for consequences:
 @item{Make their action work, but turn it around them on.}
 ]
 
-There are no strict rules for what are consequences. The only
+There are no strict rules for what consequences are. The only
 principle is that: on a @T{success}, you get what you want with only
 soft consequences@";" on a @T{partial}, you get most of what you want
 with maybe a hard consequence@";" and on a @T{failure}, you don't get
